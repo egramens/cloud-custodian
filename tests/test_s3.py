@@ -1838,7 +1838,6 @@ class S3Test(BaseTest):
         for rule in response['ReplicationConfiguration']['Rules']:
             self.assertEqual(rule['Status'], 'Disabled')
 
-
     def test_public_block_filter_access_denied(self):
         """Ensure that a bucket with restricted permissions on PublicAccessBlock
         does not cause the filter to return True, and logs the denied method.
@@ -1861,7 +1860,6 @@ class S3Test(BaseTest):
 
         resources = p.run()
         self.assertEqual(len(resources), 0)
-
 
     def test_check_public_block(self):
         """Handle cases where public block details are missing or unavailable
@@ -1894,7 +1892,6 @@ class S3Test(BaseTest):
         resources = {bucket["Name"]: bucket for bucket in p.run()}
         self.assertEqual(len(resources), 2)
         self.assertNotIn("my-locked-down-bucket", resources)
-
 
     def test_set_public_block_enable_all(self):
         bname = 'mypublicblock'
