@@ -1840,7 +1840,7 @@ class S3Test(BaseTest):
 
     def test_public_block_filter_access_denied(self):
         """Ensure that a bucket with restricted permissions on PublicAccessBlock
-        does not cause the filter to return True, and logs the denied method.
+        does not cause the filter to return True.
         """
         self.patch(s3.FilterPublicBlock, "executor_factory", MainThreadExecutor)
         self.patch(s3, "S3_AUGMENT_TABLE", [])
