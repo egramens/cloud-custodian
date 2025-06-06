@@ -1395,7 +1395,7 @@ class SetBucketReplicationConfig(BucketActionBase):
 class FilterPublicBlock(Filter):
     """Filter for s3 bucket public blocks
 
-    If no filter paramaters are provided it checks to see if any are unset or False.
+    If no filter parameters are provided it checks to see if any are unset or False.
 
     If parameters are provided only the provided ones are checked.
 
@@ -1452,7 +1452,7 @@ class FilterPublicBlock(Filter):
                         "Bucket:%s unable to invoke method:%s error:%s ",
                         bucket['Name'], method, e.response['Error']['Message']
                     )
-                    bucket.setdefault('c7n:DeniedMethods', []).append(method)
+                    return False
                 else:
                     raise
             bucket[self.annotation_key] = config
